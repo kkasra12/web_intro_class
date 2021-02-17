@@ -3,16 +3,10 @@ class Polar_vector:
     r: int
 
     def __init__(self, r, theta, range_begin=0):
-        assert range_begin in [0, -180]
-        if range_begin == 0:
-            self.__theta = theta % 360
-        else:
-            if theta < 180:
-                self.__theta = theta
-            else:
-                self.__theta = -(theta-180)
-        self.__r = abs(r)
+        assert range_begin in [0, -180], f"range_begin must be 0 or -180 not {range_begin}"
         self.range_begin = range_begin
+        self.theta = theta
+        self.r = r
 
     @property
     def r(self):
@@ -27,6 +21,7 @@ class Polar_vector:
         if self.range_begin == 0:
             self.__theta = val % 360
         else:
+            val %= 360
             if val < 180:
                 self.__theta = val
             else:

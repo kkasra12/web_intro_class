@@ -1,4 +1,4 @@
-from typing import Any, Tuple, List
+from typing import List
 
 
 class Vector:
@@ -8,6 +8,10 @@ class Vector:
         self.x = list(x)
 
     def __abs__(self):
+        # sum_ = 0
+        # for i in self.x:
+        #     sum_ += i**2
+        # return sum_**0.5
         return sum(i ** 2 for i in self.x) ** 0.5
 
     def __str__(self):
@@ -24,3 +28,4 @@ if __name__ == '__main__':
     v1 = Vector(2, 3, 4, 6, 1, 4, 7)
     print(v1)
     print(f"{abs(v1)=}")
+
